@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";  // Changed
 import Header from "../components/headerMovieList";
 import FilterCard from "../components/filterMoviesCard";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import MovieList from "../components/movieList";
-
+require('dotenv').config();
 const useStyles = makeStyles({
   root: {
     padding: "20px",
@@ -12,8 +12,23 @@ const useStyles = makeStyles({
 });
 
 const MovieListPage = (props) => {
-  const classes = useStyles();
-  const movies = props.movies;
+    const classes = useStyles();
+    const [movies, setMovies] = useState([]);
+  
+    useEffect(() => {
+      fetch(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDBKEY}&language=en-US&include_adult=false&page=1`
+      )
+        .then((res) => res.json())
+        .then((json) => {
+          // console.log(json);
+          return json.results;
+        })
+        .then((movies) => {
+          setMovies(movies);
+        });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
   return (
     <Grid container className={classes.root}>
