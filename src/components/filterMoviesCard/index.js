@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -10,7 +10,8 @@ import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
+import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +34,7 @@ export default function FilterMoviesCard(props) {
     useEffect(() => {
       fetch(
         "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
-          process.env.REACT_APP_TMDB_KEY
+          process.env.REACT_APP_TMDBKEY
       )
         .then(res => res.json())
         .then(json => {

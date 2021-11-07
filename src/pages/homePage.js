@@ -4,7 +4,7 @@ import FilterCard from "../components/filterMoviesCard";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import MovieList from "../components/movieList";
-require('dotenv').config();
+
 const useStyles = makeStyles({
   root: {
     padding: "20px",
@@ -31,6 +31,13 @@ const MovieListPage = (props) => {
       if (type === "name") setNameFilter(value);
       else setGenreFilter(value);
     };
+
+    const addToFavorites = (movieId) => {
+        const updatedMovies = movies.map((m) =>
+          m.id === movieId ? { ...m, favorite: true } : m
+        );
+        setMovies(updatedMovies);
+      };
   
     useEffect(() => {
       fetch(
@@ -60,7 +67,7 @@ const MovieListPage = (props) => {
             genreFilter={genreFilter}
         />
         </Grid>
-        <MovieList movies={displayedMovies} />
+        <MovieList movies={displayedMovies} selectFavorite={addToFavorites} />
       </Grid>
     </Grid>
   );
