@@ -6,10 +6,22 @@ import MovieReviewPage from "./pages/movieReviewPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
 import SiteHeader from './components/siteHeader';
 import UpcomingMoviesPage from "./pages/upComingMoviesPage";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools';
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 360000,
+      refetchInterval: 360000, 
+      refetchOnWindowFocus: false
+    },
+  },
+});
 
 const App = () => {
   return (
+    <QueryClientProvider client={queryClient}>
       <BrowserRouter>
           <SiteHeader />      {/* New Header  */}
       <Switch>
@@ -22,6 +34,9 @@ const App = () => {
         <Redirect from="*" to="/" />
       </Switch>
     </BrowserRouter>
+    <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+    
   );
 };
 
