@@ -34,41 +34,40 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-
   return (
     <>
-      <Typography variant="h5" component="h3">
-        Overview
-      </Typography>
+    <Typography variant="h5" component="h3">
+      Overview
+    </Typography>
 
-      <Typography variant="h6" component="p">
-        {movie.overview}
-      </Typography>
+    <Typography variant="h6" component="p">
+      {movie.overview}
+    </Typography>
 
-      <Paper component="ul" className={classes.root}>
-        <li>
-          <Chip label="Genres" className={classes.chip} color="primary" />
+    <Paper component="ul" className={classes.root}>
+      <li>
+        <Chip label="Genres" className={classes.chip} color="primary" />
+      </li>
+      {movie.genres.map((g) => (
+        <li key={g.name}>
+          <Chip label={g.name} className={classes.chip} />
         </li>
-        {movie.genres.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
-          </li>
-        ))}
-      </Paper>
-      <Paper component="ul" className={classes.root}>
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
-        <Chip
-          icon={<MonetizationIcon />}
-          label={`${movie.revenue.toLocaleString()}`}
-        />
-        <Chip
-          icon={<StarRate />}
-          label={`${movie.vote_average} (${movie.vote_count}`}
-        />
-        <Chip label={`Released: ${movie.release_date}`} />
-      </Paper>
-
-      <Paper component="ul" className={classes.root}>
+      ))}
+    </Paper>
+    <Paper component="ul" className={classes.root}>
+      <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+      <Chip
+        icon={<MonetizationIcon />}
+        label={`${movie.revenue.toLocaleString()}`}
+      />
+      <Chip
+        icon={<StarRate />}
+        label={`${movie.vote_average} (${movie.vote_count}`}
+      />
+      <Chip label={`Released: ${movie.release_date}`} />
+    </Paper>
+    
+    <Paper component="ul" className={classes.root}>
       <li>
         <Chip label="Production Countries" className={classes.chip} color="primary" />
       </li>
@@ -77,7 +76,8 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           <Chip label={p.name} className={classes.chip} />
         </li>
       ))}
-    </Paper>  
+    </Paper>
+    
 
     <Fab
         color="secondary"
@@ -92,7 +92,6 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         <MovieReviews movie={movie} />
       </Drawer>
     </>
-      
   );
 };
-export default  MovieDetails ;
+export default MovieDetails;
