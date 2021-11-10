@@ -10,6 +10,8 @@ const AddToFavoritesIcon = ({ movie }) => {
     e.preventDefault();
     context.addToFavorites(movie);
   };
+
+  
   return (
     <IconButton aria-label="add to favorites" onClick={handleAddToFavorites}>
       <FavoriteIcon color="primary" fontSize="large" />

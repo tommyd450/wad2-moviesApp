@@ -15,9 +15,10 @@ import Grid from "@material-ui/core/Grid";
 import img from '../../images/film-poster-placeholder.png';
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
+import Avatar2 from "@material-ui/core/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
-import AddToPlaylistIcon from "../cardIcons/addToPlaylist"; 
-
+import PlayListAddIcon from  '@material-ui/icons/PlaylistAdd';
+import PlaylistAdd from "@material-ui/icons/PlaylistAdd";
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -37,10 +38,12 @@ export default function MovieCard({ movie, action }) {
     movie.favorite = false
   }
 
-  const handleAddToFavorite = (e) => {
-    e.preventDefault();
-    addToFavorites(movie);
-  };
+ const { mustWatchs , addToMustWatch} = useContext(MoviesContext);
+ if (mustWatchs.find((id) => id === movie.id)) {
+  movie.mustWatch = true;
+} else {
+  movie.mustWatch = false
+}
 
   return (
     <Card className={classes.card}>
@@ -50,6 +53,10 @@ export default function MovieCard({ movie, action }) {
         movie.favorite ? (
           <Avatar className={classes.avatar}>
             <FavoriteIcon />
+          </Avatar>
+        ) : movie.mustWatch ? (
+          <Avatar className={classes.avatar}>
+            <PlaylistAdd />
           </Avatar>
         ) : null
       }
@@ -91,8 +98,9 @@ export default function MovieCard({ movie, action }) {
             More Info...
           </Button>
         </Link> 
+        <Link>
         
-       
+        </Link>
       </CardActions>
     </Card>
   );

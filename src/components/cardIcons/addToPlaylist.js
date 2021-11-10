@@ -6,11 +6,15 @@ import PlaylistIcon from "@material-ui/icons/PlaylistAdd"
 
 const AddToPlaylistIcon = ({ movie }) => {
   
-
-  
+    const context = useContext(MoviesContext);
+    const handleAddToPlaylist = (e) =>
+    {
+      e.preventDefault();
+      context.addToMustWatch(movie);
+    };
   return (
     <IconButton aria-label="add to playlist" >
-      <PlaylistIcon color="primary" fontSize="large" />
+      <PlaylistIcon color="primary" fontSize="large" onClick={handleAddToPlaylist} />
     </IconButton>
   );
 };
