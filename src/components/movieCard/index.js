@@ -16,6 +16,8 @@ import img from '../../images/film-poster-placeholder.png';
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
+import AddToPlaylistIcon from "../cardIcons/addToPlaylist"; 
+
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -89,6 +91,8 @@ export default function MovieCard({ movie, action }) {
             More Info...
           </Button>
         </Link> 
+        
+       
       </CardActions>
     </Card>
   );
