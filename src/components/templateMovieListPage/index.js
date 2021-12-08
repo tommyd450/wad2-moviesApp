@@ -4,6 +4,10 @@ import FilterCard from "../filterMoviesCard";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import MovieList from "../movieList";
+import Paginator from "../Paginator";
+
+var min = 0;
+var max = 5;
 
 const useStyles = makeStyles({
   root: {
@@ -15,8 +19,10 @@ function MovieListPageTemplate({ movies, title, action }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
+
   const genreId = Number(genreFilter);
 
+  
   let displayedMovies = movies
     .filter((m) => {
       return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
@@ -24,7 +30,8 @@ function MovieListPageTemplate({ movies, title, action }) {
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
     });
-
+    
+    
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
     else setGenreFilter(value);
@@ -43,8 +50,14 @@ function MovieListPageTemplate({ movies, title, action }) {
             genreFilter={genreFilter}
           />
         </Grid>
-        <MovieList action={action} movies={displayedMovies}></MovieList>      </Grid>
+        <MovieList action={action} movies={displayedMovies.slice(min,max)}></MovieList>      </Grid>
+        <Paginator
+          
+        />
     </Grid>
   );
 }
+
+
+
 export default MovieListPageTemplate;

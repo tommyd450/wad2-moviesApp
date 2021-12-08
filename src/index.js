@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";import HomePage from "./pages/homePage";
+import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
+import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
@@ -10,6 +11,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
+import TvShowsPage from './pages/tvSection.js';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,6 +34,7 @@ const App = () => {
         <Route exact path="/reviews/form" component={AddMovieReviewPage} />
         <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+        <Route exact path="/Tv" component={TvShowsPage}/>
         <Route path="/movies/:id" component={MoviePage} />
         <Route exact path="/" component={HomePage} />
         
@@ -40,6 +43,7 @@ const App = () => {
       </Switch>
       </MoviesContextProvider>
       </BrowserRouter>
+     
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
     
