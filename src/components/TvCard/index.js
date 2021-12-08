@@ -22,7 +22,7 @@ import PlaylistAdd from "@material-ui/icons/PlaylistAdd";
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
-  media: { height: 750 },
+  media: { height: 500 },
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",
     

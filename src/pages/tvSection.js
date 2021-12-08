@@ -1,5 +1,5 @@
 import React from "react";
-import PageTemplate from "../components/templateMovieListPage";
+import PageTemplate from "../components/templateTvListPage";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import {getTVShows} from '../api/tmdb-api';
@@ -22,7 +22,11 @@ const TvShows = (props) => {
   // Redundant, but necessary to avoid app crashing.
   
   return (
-   <h1></h1>
+    <PageTemplate
+    name="Discover Tv"
+    shows={tv}
+    
+  />
 );
 };
 
