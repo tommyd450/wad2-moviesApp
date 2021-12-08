@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
+import ShowPage from "./pages/tvDetailsPage"
 import MovieReviewPage from "./pages/movieReviewPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
 import SiteHeader from './components/siteHeader';
@@ -36,6 +37,7 @@ const App = () => {
         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
         <Route exact path="/Tv" component={TvShowsPage}/>
         <Route path="/movies/:id" component={MoviePage} />
+        <Route path="/Tv/:id" component={ShowPage}/>
         <Route exact path="/" component={HomePage} />
         
         <Route path="/reviews/:id" component={MovieReviewPage} />

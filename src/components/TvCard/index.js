@@ -29,10 +29,22 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TvCard({ show }) {
+export default function TvCard({ show,action }) {
   const classes = useStyles();
- // const { favorites, addToFavorites } = useContext(MoviesContext);
+  const { favorites, addToFavorites } = useContext(MoviesContext);
 
+  if (favorites.find((id) => id === show.id)) {
+    show.favorite = true;
+  } else {
+    show.favorite = false
+  }
+
+  const { mustWatchs , addToMustWatch} = useContext(MoviesContext);
+ if (mustWatchs.find((id) => id === show.id)) {
+  show.mustWatch = true;
+} else {
+  show.mustWatch = false
+}
 
 
   return (
@@ -71,9 +83,9 @@ export default function TvCard({ show }) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        
+      
 
-        <Link to={`/movies/${show.id}`}>
+        <Link to={`/Tv/${show.id}`}>
           <Button variant = "outlined" size = "medium" color = "primary">
             More Info...
           </Button>

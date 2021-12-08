@@ -49,7 +49,7 @@ export const getTVshow = (args) =>
   const [, idPart] = args.queryKey;
   const { id } = idPart;
 return fetch(
-  `https://api.themoviedb.org/3/tv/${idPart}?api_key=${process.env.REACT_APP_TMDBKEY}&language=en-US`
+  `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDBKEY}&language=en-US`
 ).then((response) => {
   if (!response.ok) {
     throw new Error(response.json().message);
@@ -61,6 +61,23 @@ return fetch(
 });
 };
 
+
+export const getShowImages = ({ queryKey }) => {
+  const [, idPart] = queryKey;
+  const { id } = idPart;
+  return fetch(
+    `https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.REACT_APP_TMDBKEY}`
+  ).then( (response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+
+  })
+  .catch((error) => {
+    throw error
+ });
+};
 
   
   export const getGenres = async () => {
@@ -78,6 +95,21 @@ return fetch(
       throw error
    });
   };
+
+  export const getTvGenres = async () => {
+    return fetch(
+      `https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.REACT_APP_TMDBKEY}&language=en-US`
+    ).then( (response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error
+   });
+  };
+
   
   export const getMovieImages = ({ queryKey }) => {
     const [, idPart] = queryKey;

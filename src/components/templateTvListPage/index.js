@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import ShowList from "../TvList/index"
 import Paginator from "../Paginator";
+import { setDisp } from "../../pages/homePage";
 
 var min = 0;
 var max = 5;
@@ -24,14 +25,14 @@ function TvListPageTemplate({ shows, name }) {
 
   
   let displayedShows = shows
-    /*.filter((m) => {
+    .filter((m) => {
       return m.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
     })
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-    });*/
-    
-    
+    })
+    .slice(min,max);
+
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
     else setGenreFilter(value);
@@ -51,11 +52,12 @@ function TvListPageTemplate({ shows, name }) {
           />
         </Grid>
         <ShowList  show={displayedShows}></ShowList>      </Grid>
-       
+        <Paginator
+          
+          />
     </Grid>
   );
 }
-
 
 
 export default TvListPageTemplate;

@@ -7,7 +7,7 @@ import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { withRouter } from "react-router-dom";
-//import {setDisp} from "../../pages/homePage"
+//import {setDisp} from "../../components/templateTvListPage"
 //import { setVals, setValstVals }  from "../templateMovieListPage";
 
 
@@ -20,9 +20,15 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+
+
+
 export default function Paginator(props) 
 {
-
+  const handleChange = (e, type, value) => {
+    e.preventDefault();
+    props.onUserInput(type, value); // NEW
+  };
     
     const classes = useStyles();
     return (
