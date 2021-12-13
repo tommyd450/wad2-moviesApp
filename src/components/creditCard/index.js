@@ -14,11 +14,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import img from '../../images/film-poster-placeholder.png';
 import { Link } from "react-router-dom";
-import Avatar from "@material-ui/core/Avatar";
-import Avatar2 from "@material-ui/core/Avatar";
-import { MoviesContext } from "../../contexts/moviesContext";
-import PlayListAddIcon from  '@material-ui/icons/PlaylistAdd';
-import PlaylistAdd from "@material-ui/icons/PlaylistAdd";
+
 
 const useStyles = makeStyles({
   card: { maxWidth: 500 , maxHeight:1000 },
@@ -29,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function PeopleCard({ person,action }) {
+export default function CreditCard({ credit,action }) {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
@@ -38,36 +34,46 @@ export default function PeopleCard({ person,action }) {
       
       title={
         <Typography variant="h5" component="p">
-          {person.name}{" "}{"("+person.character+")"}
+          {credit.character}{" "}
         </Typography>
       }
     />
       <CardMedia
         className={classes.media}
         image={
-          person.profile_path
-            ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
+          credit.backdrop_path
+            ? `https://image.tmdb.org/t/p/w500/${credit.backdrop_path}`
             : img
         }
       />
       <CardContent>
         <Grid container>
           
+        <CardContent>
+        <Grid container>
+          <Grid item xs={6}>
+            <Typography variant="h6" component="p">
+              <CalendarIcon fontSize="small" />
+              {credit.release_date}
+            </Typography>
+          </Grid>
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              {"  "} {person.popularity}{" "}
+              {"  "} {credit.vote_average}{" "}
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
+        </Grid>
+      </CardContent>
       <CardActions disableSpacing>
       
-      <Link to={`/person/${person.id}`}>
+      <Link to={`/movies/${credit.id}`}>
           <Button variant = "outlined" size = "medium" color = "primary">
             More Info...
           </Button>
-      </Link> 
+        </Link> 
         
         
         

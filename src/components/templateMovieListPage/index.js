@@ -50,7 +50,7 @@ function MovieListPageTemplate({ movies, title, action }) {
             genreFilter={genreFilter}
           />
         </Grid>
-        <MovieList action={action} movies={displayedMovies.slice(min,max)}></MovieList>      </Grid>
+        <MovieList action={action} movies={displayedMovies}></MovieList>      </Grid>
         <Paginator
           
         />
