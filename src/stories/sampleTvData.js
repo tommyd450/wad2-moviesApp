@@ -1,4 +1,4 @@
-export default{
+export default {
     "poster_path": "/QWbPaDxiB6LW2LjASknzYBvjMj.jpg",
     "popularity": 5.4,
     "id": 61889,

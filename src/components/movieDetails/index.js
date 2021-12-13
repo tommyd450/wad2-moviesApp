@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 const MovieDetails = ({ movie }) => {  // Don't miss this!
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
-
+  const [drawerOpen2, setDrawerOpen2] = useState(false);
   return (
     <>
     <Typography variant="h5" component="h3">

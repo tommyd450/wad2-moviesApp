@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
+import PeopleList from "../components/templatePeopleList";
 
 
 // import useMovie from "../hooks/useMovie";   Redundant
-import { getMovie } from '../api/tmdb-api';
+import { getCredits, getMovie } from '../api/tmdb-api';
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
 
@@ -16,7 +17,13 @@ const MovieDetailsPage = (props) => {
     ["movie", { id: id }],
     getMovie
   );
+  const {data: data2} = useQuery(
+    ["person", { id: id }],
+    getCredits 
+  );
 
+ 
+  
   if (isLoading) {
     return <Spinner />;
   }
@@ -27,10 +34,12 @@ const MovieDetailsPage = (props) => {
 
   return (
     <>
+      
       {movie ? (
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
+            <PeopleList persons = {data2}/>
           </PageTemplate>
         </>
       ) : (
