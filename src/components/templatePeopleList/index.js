@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-function PeopleListPageTemplate({ persons, name }) {
+function PeopleListPageTemplate({ persons, name ,movie }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
@@ -33,7 +33,7 @@ function PeopleListPageTemplate({ persons, name }) {
         <Header title={name} />
       </Grid>
       <Grid item container spacing={5}>
-        <PeopleList  person={displayedPersons}></PeopleList>      </Grid>
+        <PeopleList  person={displayedPersons} movie={movie}></PeopleList>      </Grid>
         <Paginator
           
           />

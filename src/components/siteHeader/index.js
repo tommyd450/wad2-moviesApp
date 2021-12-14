@@ -32,6 +32,7 @@ const SiteHeader = ( { history }) => {
     { label: "Favorites", path: "/movies/favorites" },
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "TV", path: "/Tv" },
+    { label: "Trending", path: "/trending" }
   ];
 
   const handleMenuSelect = (pageURL) => {

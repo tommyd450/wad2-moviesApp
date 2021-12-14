@@ -22,18 +22,18 @@ const PersonDetailsPage = (props) => {
     getPerson
   );
 
-  const {data: data2} = useQuery(
+  const {data: data2, error2, isLoading2,isError2} = useQuery(
     ["movie_credits", { id: id }],
     getPersonCredits 
   );
 
  console.log(data2);
   
-  if (isLoading) {
+  if (isLoading||isLoading2) {
     return <Spinner />;
   }
 
-  if (isError) {
+  if (isError||isError) {
     return <h1>{error.message}</h1>;
   }
 
