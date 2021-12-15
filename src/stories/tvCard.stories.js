@@ -29,9 +29,9 @@ export const Exceptional = () => {
   const sampleNoPoster = { ...sampleData, poster_path: undefined };
   return (
     <TvCard
-      movie={sampleNoPoster}
+      show={sampleNoPoster}
       //action={(movie) => <AddToFavoritesIcon movie={movie} />}
-      taging={(movie) => null}
+      
     />
   );
 };

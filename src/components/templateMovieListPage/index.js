@@ -6,8 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import MovieList from "../movieList";
 import Paginator from "../Paginator";
 
-var min = 0;
-var max = 5;
+
 
 const useStyles = makeStyles({
   root: {

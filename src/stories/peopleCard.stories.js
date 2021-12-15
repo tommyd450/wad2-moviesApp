@@ -30,7 +30,7 @@ export const Exceptional = () => {
   const sampleNoPoster = { ...SamplePerson, poster_path: undefined };
   return (
     <PeopleCard
-      movie={sampleNoPoster}
+      person={sampleNoPoster}
       
     />
   );
