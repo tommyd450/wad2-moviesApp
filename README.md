@@ -1,23 +1,26 @@
 # Assignment 1 - ReactJS app.
 
-Name: [your name]
+Name: Tommy Dalton
 
 ## Overview.
 
-[A brief statement on the content of this repository.]
+This repo is for assignment 1 Web App Development. It contains a movies app which queries the TMDB database to get data to display to the user.
 
 ### Features.
 [ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
  
-+ Feature 1
-+ Feature 2
-+ Feature 3
-+ etc
-+ etc
++ Feature 1 See new Movies.
++ Feature 2 See new Tv Shows
++ Feature 3 Add Movies to your favourites list.
++ Feature 4 See the acting cast of each movie.
++ Feature 5 See what movies specific actors have starred in.
++ Feature 6 See whats Trending in the Trending Tab.
 
 ## Setup requirements.
 
-[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
+Installiong the node modules necessary to run it.
+
+
 
 ## API endpoints.
 
@@ -27,37 +30,57 @@ e.g.
 + Discover list of movies - discover/movie
 + Movie details - movie/:id
 + Movie genres = /genre/movie/list
++ Discover list of Tv shows - discover/tv
++ Get Tv Show details - tv/:id
++ Get Trending Movies = /trending/movie/week
++ Get Tv Show Images = /tv/:id/images
++ Get Tv Genres = /genre/tv/list
++ Get Movie Images = /movie/:id?images
++ Get Movie Reviews = /movie/:id/reviews
++ Get Upcoming movies = /movie/upcoming
++ Get Credits = /movie/:id?credits
++ Get Person = /person/:id
++ Get Person Movie Credits = /person/:id/movie_credits
+
 
 ## App Design.
 
 ### Component catalogue.
 
-[ Insert a screenshot from the Storybook UI that lists all the stories for the app's components, and highlight those relating to your __new/modified components__ - see the example screenshot below.] .......
 
 ![](./images/storybook.png)
 ### UI Design.
 
 [ Insert screenshots of the __new/modified app pages__ you developed (and modified existing pages), Include an appropriate caption for each one (see example below).
 
-![ ](./images/view.png)
+![ ](./images/MoviesPageUpdate.png)
 
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
+>Below the movies details i have added the list of its cast members to the bottom. Each cast member can be interacted with for more info.
 
-![ ](./images/view.png)
+![ ](./images/ActorPage.png)
 
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
+>Accessed through a movie the actors page lists some info on the actor and some of the roles they have played in other movies below. These movies can be accessed by clicking on more info.
+
+![ ](./images/TvPage.png)
+
+>Lists Tv shows using TMDB discover tv shows query.
+
+![ ](./images/TredningMovies.png)
+
+> Lists Trending Movies using TMDB Trending query
 
 ### Routing.
 
-[ List the __new routes__ supported by your app and state the associated page.]
 
-+ /blogs - displays all published blogs.
-+ /blogs/:id - displays a particular blog.
-+ /blogs/:id/comments - detail view of a particular blog and its comments.
-+ etc.
 
-[If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
++ /Tv - For the Tv Shows
++ /Tv/:id - For a specific tv shows details
++ /Person/:id - For a specific actors details
++ /trending - For trending Movies
+
+
+
 
 ## Independent learning (If relevant).
 
-[ Itemize the technologies/techniques you researched independently and adopted in your project, i.e. aspects not covered in the lectures/labs. Include the source code filenames that illustrate these (we do not require code excerpts) and provide references to the online resources that helped you (articles/blogs).
++ Nothing of note

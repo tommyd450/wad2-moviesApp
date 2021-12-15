@@ -18,7 +18,7 @@ export const Basic = () => {
   return (
     <TvCard
       show={sampleData}
-      //action={(show) => <AddToFavoritesIcon movie={show} />}
+      
       taging={(show) => null}
     />
   );
@@ -30,7 +30,7 @@ export const Exceptional = () => {
   return (
     <TvCard
       show={sampleNoPoster}
-      //action={(movie) => <AddToFavoritesIcon movie={movie} />}
+      
       
     />
   );

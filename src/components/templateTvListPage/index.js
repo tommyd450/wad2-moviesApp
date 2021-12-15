@@ -30,8 +30,7 @@ function TvListPageTemplate({ shows, name }) {
     })
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-    })
-    .slice(min,max);
+    });
 
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);

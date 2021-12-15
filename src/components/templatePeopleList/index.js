@@ -7,8 +7,6 @@ import PeopleList from "../peoplelist/index";
 import Paginator from "../Paginator";
 import { setDisp } from "../../pages/homePage";
 
-var min = 0;
-var max = 5;
 
 const useStyles = makeStyles({
   root: {
@@ -21,7 +19,7 @@ function PeopleListPageTemplate({ persons, name ,movie }) {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
 
-  const genreId = Number(genreFilter);
+ 
 
   
   let displayedPersons = persons;

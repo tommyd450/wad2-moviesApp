@@ -9,7 +9,12 @@ export default {
     "origin_country": [
       "US"
     ],
-    "genre_ids": [
+    "production_countries" : [
+      {
+      "name ": "Unites States of America",
+      },
+    ],
+    "genres": [
       28
     ],
     "original_language": "en",

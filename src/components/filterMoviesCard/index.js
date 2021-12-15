@@ -47,7 +47,9 @@ export default function FilterMoviesCard(props) {
 
   const genres = data.genres;
 
+  
   genres.unshift({ id: "0", name: "All" });
+
 
   const handleChange = (e, type, value) => {
     e.preventDefault();
@@ -105,19 +107,7 @@ export default function FilterMoviesCard(props) {
               
         </FormControl>
 
-        <FormControl className={classes.formControl}>
-          <InputLabel id="language-label">Language</InputLabel>
-            <Select
-            labelId="language-label"
-            id="language-select"
-            value={props.languageFilter}
-            onChange={handleGenreChange}
-            >
-          
-          </Select>
-              
-        </FormControl>
-
+        
       </CardContent>
       <CardMedia
         className={classes.media}

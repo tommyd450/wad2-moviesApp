@@ -1,8 +1,7 @@
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
-import MonetizationIcon from "@material-ui/icons/MonetizationOn";
-import BookIcon from "@material-ui/icons/Book"
+
 import StarRate from "@material-ui/icons/StarRate";
 import NavigationIcon from "@material-ui/icons/Navigation";
 import Fab from "@material-ui/core/Fab";
@@ -56,7 +55,7 @@ const ShowDetails = ({ show }) => {  // Don't miss this!
       ))}
     </Paper>
     <Paper component="ul" className={classes.root}>
-      <Chip icon={<AccessTimeIcon />} label={`${show.runtime} min.`} />
+      <Chip icon={<AccessTimeIcon />} label={`${show.episode_run_time} min.`} />
       <Chip
         icon={<AccessTimeIcon />}
         label={`${show.number_of_episodes}`}
@@ -65,7 +64,7 @@ const ShowDetails = ({ show }) => {  // Don't miss this!
         icon={<StarRate />}
         label={`${show.vote_average} (${show.vote_count}`}
       />
-      <Chip label={`Released: ${show.release_date}`} />
+      <Chip label={`Released: ${show.first_air_date}`} />
     </Paper>
     
     <Paper component="ul" className={classes.root}>
