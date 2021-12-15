@@ -19,9 +19,10 @@ function MovieListPageTemplate({ movies, title, action }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
+  const [languageFilter, setLanguageFilter] = useState("");
 
   const genreId = Number(genreFilter);
-
+  const language = languageFilter;
   
   let displayedMovies = movies
     .filter((m) => {
@@ -29,6 +30,9 @@ function MovieListPageTemplate({ movies, title, action }) {
     })
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
+    })
+    .filter((m) => {
+      return language > 0 ? m.spoken_languages.includes(language) : true;
     });
     
     

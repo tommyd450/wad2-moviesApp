@@ -35,7 +35,7 @@ const MovieDetailsPage = (props) => {
   return (
     <>
       
-      {movie ? (
+      {movie && data2? (
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />

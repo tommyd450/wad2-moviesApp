@@ -33,21 +33,21 @@ const App = () => {
         <SiteHeader />
         <MoviesContextProvider>
             {" "}
-      <Switch>
-        <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-        <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
-        <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-        <Route exact path="/Tv" component={TvShowsPage}/>
-        <Route path="/movies/:id" component={MoviePage} />
-        <Route path="/Tv/:id" component={ShowPage}/>
-        <Route path="/Person/:id" component={PeoplePage}/>
-        <Route path="/trending" component={TrendingPage}/>
-        <Route exact path="/" component={HomePage} />
-        
-        <Route path="/reviews/:id" component={MovieReviewPage} />
-        <Redirect from="*" to="/" />
-      </Switch>
-      </MoviesContextProvider>
+          <Switch>
+            <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+            <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+            <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+            <Route exact path="/Tv" component={TvShowsPage}/>
+            <Route path="/movies/:id" component={MoviePage} />
+            <Route path="/Tv/:id" component={ShowPage}/>
+            <Route path="/Person/:id" component={PeoplePage}/>
+            <Route path="/trending" component={TrendingPage}/>
+            <Route exact path="/" component={HomePage} />
+            
+            <Route path="/reviews/:id" component={MovieReviewPage} />
+            <Redirect from="*" to="/" />
+          </Switch>
+        </MoviesContextProvider>
       </BrowserRouter>
      
       <ReactQueryDevtools initialIsOpen={false} />

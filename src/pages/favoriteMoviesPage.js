@@ -21,27 +21,27 @@ const FavoriteMoviesPage = () => {
   );
   // Check if any of the parallel queries is still loading.
   const isLoading = favoriteMovieQueries.find((m) => m.isLoading === true);
-
+  const movies = favoriteMovieQueries.map((q) => q.data);
   if (isLoading) {
     return <Spinner />;
   }
-  const movies = favoriteMovieQueries.map((q) => q.data);
+  
   const toDo = () => true;
 
-  return (
-    <PageTemplate
-      title="Favorite Movies"
-      movies={movies}
-      action={(movie) => {
-        return (
-          <>
-            <RemoveFromFavorites movie={movie} />
-            <WriteReview movie={movie} />
-          </>
-        );
-      }}
-    />
-  );
-};
+    return (
+      <PageTemplate
+        title="Favorite Movies"
+        movies={movies}
+        action={(movie) => {
+          return (
+            <>
+              <RemoveFromFavorites movie={movie} />
+              <WriteReview movie={movie} />
+            </>
+          );
+        }}
+      />
+    );
+  };
 
-export default FavoriteMoviesPage;
+  export default FavoriteMoviesPage;

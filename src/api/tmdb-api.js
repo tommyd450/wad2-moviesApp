@@ -222,3 +222,19 @@ export const getShowImages = ({ queryKey }) => {
       });
     };
 
+    export const getLanguages = () => {
+      return fetch(
+        `https://api.themoviedb.org/3/configuration/languages?api_key=${process.env.REACT_APP_TMDBKEY}`
+      ).then( (response) => {
+        if (!response.ok) {
+          throw new Error(response.json().message);
+        }
+        
+        return response.json();
+      })
+      .catch((error) => {
+        throw error
+     });
+    };
+  
+    

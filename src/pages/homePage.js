@@ -5,6 +5,7 @@ import Spinner from '../components/spinner';
 import {getMovies} from '../api/tmdb-api';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
 
+
 var disp;
 var movies;
 

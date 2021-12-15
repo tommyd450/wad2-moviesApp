@@ -29,11 +29,11 @@ const PersonDetailsPage = (props) => {
 
  console.log(data2);
   
-  if (isLoading||isLoading2) {
+  if (isLoading) {
     return <Spinner />;
   }
 
-  if (isError||isError) {
+  if (isError) {
     return <h1>{error.message}</h1>;
   }
 
@@ -41,7 +41,7 @@ const PersonDetailsPage = (props) => {
   return (
     <>
       
-      {person ? (
+      {person && data2 ? (
         <>
           <PageTemplate person={person}>
             <PersonDetails person={person} />
