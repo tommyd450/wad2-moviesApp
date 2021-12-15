@@ -7,7 +7,7 @@ Name: Tommy Dalton
 This repo is for assignment 1 Web App Development. It contains a movies app which queries the TMDB database to get data to display to the user.
 
 ### Features.
-[ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
+
  
 + Feature 1 See new Movies.
 + Feature 2 See new Tv Shows
