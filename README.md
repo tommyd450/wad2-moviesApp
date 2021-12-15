@@ -24,7 +24,7 @@ Installiong the node modules necessary to run it.
 
 ## API endpoints.
 
-[ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
+
 
 e.g.
 + Discover list of movies - discover/movie
