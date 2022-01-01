@@ -22,7 +22,7 @@ function MovieListPageTemplate({ movies, title, action }) {
 
   const genreId = Number(genreFilter);
   const language = languageFilter;
-  
+  //console.log(movies);
   let displayedMovies = movies
     .filter((m) => {
       return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;

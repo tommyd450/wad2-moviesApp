@@ -6,32 +6,21 @@ import { getMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner';
 import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
+import {AuthContext} from "../authentication/authContext";
 
 const FavoriteMoviesPage = () => {
-  const {favorites: movieIds } = useContext(MoviesContext);
 
+  const {favorite} = useContext(AuthContext);
+ 
   // Create an array of queries and run in parallel.
-  const favoriteMovieQueries = useQueries(
-    movieIds.map((movieId) => {
-      return {
-        queryKey: ["movie", { id: movieId }],
-        queryFn: getMovie,
-      };
-    })
-  );
-  // Check if any of the parallel queries is still loading.
-  const isLoading = favoriteMovieQueries.find((m) => m.isLoading === true);
-  const movies = favoriteMovieQueries.map((q) => q.data);
-  if (isLoading) {
-    return <Spinner />;
-  }
+
   
-  const toDo = () => true;
+ 
 
     return (
       <PageTemplate
         title="Favorite Movies"
-        movies={movies}
+        movies={favorite}
         action={(movie) => {
           return (
             <>

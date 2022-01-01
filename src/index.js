@@ -15,6 +15,11 @@ import AddMovieReviewPage from './pages/addMovieReviewPage';
 import TvShowsPage from './pages/tvSection.js';
 import PeoplePage from "./pages/personDetailsPage";
 import TrendingPage from "./pages/trendingMoviePage";
+import AuthHeader from "./authentication/authHeader";
+import AuthProvider from "./authentication/authContext";
+import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/signupPage";
+import PrivateRoute from "./components/privateRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,24 +35,34 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+      
+        
         <SiteHeader />
+        <AuthProvider>
         <MoviesContextProvider>
-            {" "}
-          <Switch>
-            <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-            <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
-            <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-            <Route exact path="/Tv" component={TvShowsPage}/>
-            <Route path="/movies/:id" component={MoviePage} />
-            <Route path="/Tv/:id" component={ShowPage}/>
-            <Route path="/Person/:id" component={PeoplePage}/>
-            <Route path="/trending" component={TrendingPage}/>
-            <Route exact path="/" component={HomePage} />
+          <AuthHeader/>
+          
             
-            <Route path="/reviews/:id" component={MovieReviewPage} />
+            
+          <Switch>
+            <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />
+            <Route exact path="/login" component={LoginPage}/>
+            <Route exact path="/signup" component={SignUpPage} />
+            <PrivateRoute exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+            <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
+            <PrivateRoute exact path="/Tv" component={TvShowsPage}/>
+            <PrivateRoute path="/movies/:id" component={MoviePage} />
+            <PrivateRoute path="/Tv/:id" component={ShowPage}/>
+            <PrivateRoute path="/Person/:id" component={PeoplePage}/>
+            <PrivateRoute path="/trending" component={TrendingPage}/>
+            <PrivateRoute exact path="/" component={HomePage} />
+            
+            <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
             <Redirect from="*" to="/" />
           </Switch>
+          
         </MoviesContextProvider>
+        </AuthProvider>
       </BrowserRouter>
      
       <ReactQueryDevtools initialIsOpen={false} />

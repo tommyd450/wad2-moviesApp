@@ -17,6 +17,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Avatar2 from "@material-ui/core/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
 import PlaylistAdd from "@material-ui/icons/PlaylistAdd";
+import { AuthContext } from "../../authentication/authContext";
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -28,9 +29,9 @@ const useStyles = makeStyles({
 
 export default function MovieCard({ movie, action }) {
   const classes = useStyles();
-  const { favorites, addToFavorites } = useContext(MoviesContext);
-
-  if (favorites.find((id) => id === movie.id)) {
+  const { favorite, addToFavorites } = useContext(AuthContext);
+  
+  if (favorite.find((id) => id === movie.id)) {
     movie.favorite = true;
   } else {
     movie.favorite = false
@@ -43,10 +44,6 @@ export default function MovieCard({ movie, action }) {
   movie.mustWatch = false
 }
 
-const handleAddToFavorite = (e) => {
-  e.preventDefault();
-  addToFavorites(movie);
-};
 
 
   return (
